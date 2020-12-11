@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _ = require("lodash");
 const mongoose = require("mongoose");
+require('dotenv').config()
 
 const homeStartingContent = "A diary is a record (originally in handwritten format) with discrete entries arranged by date reporting on what has happened over the course of a day or other period. A personal diary may include a person's experiences, thoughts, and/or feelings, excluding comments on current events outside the writer's direct experience. Someone who keeps a diary is known as a diarist";
 const aboutContent = "This app was created by SHAILESH BISHT for learning and practice purpose .";
@@ -21,7 +22,7 @@ app.use(express.static("public"));
 
 //mongoose connect
 
-mongoose.connect("mongodb+srv://shailesh-bisht:ShaileshBisht1998@cluster0.puebn.mongodb.net/blogDB",{useNewUrlParser: true , useUnifiedTopology: true});
+mongoose.connect(process.env.DB_URL,{useNewUrlParser: true , useUnifiedTopology: true});
 
 // mongoose Schema
 
